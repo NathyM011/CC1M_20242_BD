@@ -1,0 +1,52 @@
+CREATE SCHEMA primeira_atividade_fixacao;
+USE primeira_atividade_fixacao;
+
+CREATE TABLE IF NOT EXISTS PARTICIPANTES(
+	PART_NUMINSCRICAO INT,
+    PART_CPF VARCHAR(20),
+    PRIMARY KEY(PART_NUMINSCRICAO, PART_CPF), #primary key composta
+    PART_NOME VARCHAR (100) NOT NULL,
+    PART_DATANASC DATE NOT NULL,
+    PART_EMPRESA VARCHAR(100)
+);
+
+create table if not exists locais(
+	local_id int primary key,
+    local_nome varchar(100) not null,
+    local_logradouro varchar(100),
+    local_num int,
+    local_bairro varchar(100) not null,
+    local_cidade varchar(100) not null,
+    local_uf char(2) not null,
+    local_cep varchar(20) not null,
+    local_capac int not null
+);
+
+CREATE TABLE IF NOT EXISTS EVENTOS(
+	event_id int primary key,
+    event_nome varchar(100) not null,
+    event_data date not null,
+    event_entidade varchar(100),
+    local_evento int,
+    constraint fk_locais foreign key (local_evento) references locais (local_id)
+);
+
+create table if not exists atividades(
+	atividade_id int primary key,
+    atividade_nome varchar(100) not null,
+    atividade_data date not null,
+    atividade_hora time not null,
+    atividade_evento int,
+    constraint fk_eventos foreign key (atividade_evento) references eventos (event_id)
+);
+
+create table if not exists participantes_atividades(
+	inscricao int,
+    cpf varchar(20),
+    atividade int,
+    
+    primary key(inscricao, cpf, atividade),
+    constraint fk_atividades foreign key (atividade) references atividades (atividade_id),
+	constraint fk_participantes foreign key (cpf) references PARTICIPANTES (PART_CPF),
+	constraint fk_participantes foreign key (inscricao) references PARTICIPANTES (PART_NUMINSCRICAO)
+);
