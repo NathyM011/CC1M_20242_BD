@@ -73,7 +73,7 @@ create table if not exists filiais_produtos(
     constraint fk_fp_filiais foreign key (fp_filiais_cod) references filiais (filiais_cod),
 	constraint fk_fp_produtos foreign key (fp_produtos_cod) references produtos (prod_cod),
 
-    fp_produtos_quant decimal(10,3) not null-
+    fp_produtos_quant decimal(10,3) not null
 );
 
 create table if not exists fornecedores_produtos(
