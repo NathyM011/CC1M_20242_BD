@@ -1,9 +1,6 @@
 create schema est_caso_ii;
 use est_caso_ii;
 
-drop schema est_caso_ii;
-
--- tabela de passageiros
 create table passageiros (
     passageiros_cpf char(11) primary key,
     passageiros_nome varchar(100) not null,
@@ -20,7 +17,6 @@ alter table passageiros change passageiros_nacionalidade passageiros_naturalidad
 alter table passageiros modify passageiros_naturalidade varchar(100);
 alter table passageiros drop column passageiros_naturalidade;
 
--- tabela de aeroportos
 create table aeroportos (
     aeroportos_id int primary key,
     aeroportos_nome varchar(100) not null,
@@ -35,7 +31,6 @@ alter table aeroportos change aeroportos_terminal aeroportos_terminal_principal 
 alter table aeroportos modify aeroportos_terminal_principal varchar(10);
 alter table aeroportos drop column aeroportos_terminal_principal;
 
--- tabela de aeronaves
 create table aeronaves (
     aeronaves_id int primary key,
     aeronaves_modelo varchar(50),
@@ -47,7 +42,6 @@ alter table aeronaves change aeronaves_ano_fabricacao aeronaves_ano_modelo year;
 alter table aeronaves modify aeronaves_ano_modelo varchar(4);
 alter table aeronaves drop column aeronaves_ano_modelo;
 
--- tabela de voos
 create table voos (
     voos_id int primary key,
     voos_id_aeroporto_origem int not null,
@@ -65,7 +59,6 @@ alter table voos change voos_escala voos_paradas varchar(100);
 alter table voos modify voos_paradas varchar(150);
 alter table voos drop column voos_paradas;
 
--- tabela de funcionários
 create table funcionarios (
     funcionarios_id int primary key,
     funcionarios_nome varchar(100) not null,
@@ -82,8 +75,6 @@ alter table funcionarios change funcionarios_turno funcionarios_periodo varchar(
 alter table funcionarios modify funcionarios_periodo varchar(30);
 alter table funcionarios drop column funcionarios_periodo;
 
-
--- tabela de reservas
 create table reservas (
     reservas_id int primary key,
     reservas_id_passageiro varchar(11) not null,
@@ -98,8 +89,6 @@ alter table reservas change reservas_status reservas_situacao varchar(20);
 alter table reservas modify reservas_situacao varchar(30);
 alter table reservas drop column reservas_situacao;
 
-
--- tabela de operacoes_de_voo
 create table operacoes_de_voo (
     operacoes_id int primary key,
     operacoes_id_voo int not null,
