@@ -1,7 +1,7 @@
 create schema est_caso_ii;
 use est_caso_ii;
 
-create table passageiros (
+create table if not exists passageiros (
     passageiros_cpf char(11) primary key,
     passageiros_nome varchar(100) not null,
     passageiros_telefone varchar(15),
@@ -17,7 +17,7 @@ alter table passageiros change passageiros_nacionalidade passageiros_naturalidad
 alter table passageiros modify passageiros_naturalidade varchar(100);
 alter table passageiros drop column passageiros_naturalidade;
 
-create table aeroportos (
+create table if not exists aeroportos (
     aeroportos_id int primary key,
     aeroportos_nome varchar(100) not null,
     aeroportos_cidade varchar(100) not null,
@@ -31,7 +31,7 @@ alter table aeroportos change aeroportos_terminal aeroportos_terminal_principal 
 alter table aeroportos modify aeroportos_terminal_principal varchar(10);
 alter table aeroportos drop column aeroportos_terminal_principal;
 
-create table aeronaves (
+create table if not exists aeronaves (
     aeronaves_id int primary key,
     aeronaves_modelo varchar(50),
     aeronaves_capacidade int not null
@@ -42,7 +42,7 @@ alter table aeronaves change aeronaves_ano_fabricacao aeronaves_ano_modelo year;
 alter table aeronaves modify aeronaves_ano_modelo varchar(4);
 alter table aeronaves drop column aeronaves_ano_modelo;
 
-create table voos (
+create table if not exists voos (
     voos_id int primary key,
     voos_id_aeroporto_origem int not null,
     voos_id_aeroporto_destino int not null,
@@ -59,7 +59,7 @@ alter table voos change voos_escala voos_paradas varchar(100);
 alter table voos modify voos_paradas varchar(150);
 alter table voos drop column voos_paradas;
 
-create table funcionarios (
+create table if not exists funcionarios (
     funcionarios_id int primary key,
     funcionarios_nome varchar(100) not null,
     funcionarios_cargo varchar(50) not null,
@@ -75,7 +75,7 @@ alter table funcionarios change funcionarios_turno funcionarios_periodo varchar(
 alter table funcionarios modify funcionarios_periodo varchar(30);
 alter table funcionarios drop column funcionarios_periodo;
 
-create table reservas (
+create table if not exists reservas (
     reservas_id int primary key,
     reservas_id_passageiro varchar(11) not null,
     reservas_id_voo int not null,
@@ -89,7 +89,7 @@ alter table reservas change reservas_status reservas_situacao varchar(20);
 alter table reservas modify reservas_situacao varchar(30);
 alter table reservas drop column reservas_situacao;
 
-create table operacoes_de_voo (
+create table if not exists operacoes_de_voo (
     operacoes_id int primary key,
     operacoes_id_voo int not null,
     operacoes_id_funcionario int not null,
@@ -103,7 +103,7 @@ alter table operacoes_de_voo change operacoes_tipo_equipamento operacoes_equipam
 alter table operacoes_de_voo modify operacoes_equipamento_utilizado varchar(100);
 alter table operacoes_de_voo drop column operacoes_equipamento_utilizado;
 
-create table bagagens (
+create table if not exists bagagens (
     bagagens_id int primary key,
     bagagens_id_reserva int not null,
     bagagens_peso decimal(5,2) not null,
