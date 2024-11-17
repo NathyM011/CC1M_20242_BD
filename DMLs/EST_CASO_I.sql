@@ -1,3 +1,5 @@
+use EST_CASO_I;
+
 ############# TABELA FORNECEDORES #############
 INSERT INTO fornecedores (forn_cod, forn_nome, forn_rua, forn_num, forn_bairro, forn_cidade, forn_estado, forn_pais, forn_cep, forn_telefone, forn_contato)
 VALUES 
