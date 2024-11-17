@@ -1,3 +1,4 @@
+use EST_CASO_III;
 
 ####INSERTS####
 INSERT INTO tipo_endereco (tipo_endereco_codigo, tipo_endereco_nome) 
