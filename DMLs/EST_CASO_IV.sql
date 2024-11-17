@@ -1,3 +1,4 @@
+use EST_CASO_IV;
 
 ####INSERTS####
 INSERT INTO alunos (
