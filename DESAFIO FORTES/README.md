@@ -1,4 +1,5 @@
 # Documentação do Desafio Fortes
+#### Integrantes: Alexandre Miguel Abreu Miertschink, Guilherme Campo, Nathália Caldonho, Geilson Lucas e Jesus Fabian - CC1M
 
 ## Projeto Fortificar
 O Projeto Fortificar é uma ação desenvolvida pela empresa Fortes com o objetivo de auxiliar projetos sociais que estejam alinhados aos Objetivos de Desenvolvimento Sustentável (ODS) da alçada da empresa. A solução busca oferecer suporte para gestão, acompanhamento e transparência na execução de iniciativas sociais, promovendo impacto positivo nas comunidades atendidas.  
